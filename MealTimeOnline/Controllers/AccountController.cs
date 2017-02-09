@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MealTimeOnline.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         // GET: Account/Index

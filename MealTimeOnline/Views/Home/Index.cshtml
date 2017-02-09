@@ -11,7 +11,16 @@
                 <h4 class="modal-title" id="myModalLabel">About</h4>
             </div>
             <div class="modal-body">
-                ...
+                <p>This project is about a school training which is required to build a website by using ASP.NET framework.</p>
+                <p>In order to make the development easier and practice our teamwork skill in the meantime, we make up a small team to develop this project.</p>
+                <p>
+                    Here are the member list: <br />
+                    - 组长：刘志鹏（<a href="https://github.com/Liuacg">Liuacg</a>）<br />
+                    - 组员：魏金辉（<a href="https://github.com/AK4TRl">AK4TRl</a>）<br />
+                    - 组员：陈苑明（<a href="https://github.com/CDZSC-kirito">kirito</a>）<br />
+                    - 组员：谭路（<a href="https://github.com/tanluzsc">tanluzsc</a>）<br />
+                    - 组员：郭峰（<a href="https://github.com/gaffey">gaffey</a>）<br />
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -25,42 +34,45 @@
         <div class="container">
             <div class="clearfix">
                 <div class="col-md-7">
-                    <h1 class="">How people find meals to eat</h1>
-                    <p class="">Find and Eat</p>
+                    <h1 class="" style="color: #eee;">How people find meals to eat</h1>
+                    <p class="" style="color: #ddd">Find and Eat</p>
                 </div>
                 <div class="col-md-5">
-                    <div>
-                        <dl>
-                            <dd>
-                                <input type="text" class="form-control input-lg" placeholder="Pick a username"
-                                       autofocus="">
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dd>
-                                <input type="text" class="form-control input-lg"
-                                       placeholder="Your email address">
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dd>
-                                <input type="password" class="form-control input-lg"
-                                       placeholder="Create a password">
-                                <span class="email-notice">Use at least one letter, one numeral, and seven characters.</span>
-                            </dd>
-                        </dl>
+                    <form action="/" method="post">
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <dl>
+                                <dd>
+                                    <input type="text" class="form-control input-lg" placeholder="Pick a username"
+                                           autofocus="">
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dd>
+                                    <input type="text" class="form-control input-lg"
+                                           placeholder="Your email address">
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dd>
+                                    <input type="password" class="form-control input-lg"
+                                           placeholder="Create a password">
+                                    <span class="email-notice">Use at least one letter, one numeral, and seven characters.</span>
+                                </dd>
+                            </dl>
 
-                        <button class="btn btn-primary btn-lg btn-block btn-success" type="submit">
-                            Sign up for
-                            School
-                        </button>
+                            <button class="btn btn-primary btn-lg btn-block btn-success" type="submit">
+                                Sign up for
+                                School
+                            </button>
 
-                        <span class="email-notice text-center">
+                            <span class="email-notice text-center">
                             By clicking "Sign up for School", you agree to our
                             <a class="" href="#" target="_blank">privacy policy</a>.
                             <span class="email-notice">We'll occasionally send you account related emails.</span>
                         </span>
-                    </div>
+                        }
+                    </form>
                 </div>
             </div>
         </div>
@@ -75,8 +87,8 @@
     <div class="contain-center-gray contain-zone">
         <div class="container text-center clearfix">
             <div class="col-md-2 float-md-left">
-                <img src="#" alt="Alternate Text" />
                 <a href="@Url.Action("Canteen", "Order")" type="button" class="btn btn-success navbar-btn">Enter</a>
+                <i class="fa-arrow-circle-o-right fa fa-2x"></i>
             </div>
             <div class="col-md-5 float-md-left">
                 <h1>ORDER</h1>
@@ -87,7 +99,7 @@
     <div class="contain-zone">
         <div class="container text-center clearfix">
             <div class="col-md-2 float-md-right">
-                <img src="#" alt="Alternate Text" />
+                <i class="fa-wrench fa fa-2x"></i>
                 <a href="#" type="button" class="btn btn-success navbar-btn">Enter</a>
             </div>
             <div class="col-md-5 float-md-right">
@@ -99,8 +111,8 @@
     <div class="contain-center-gray contain-zone">
         <div class="container text-center clearfix">
             <div class="col-md-2 float-md-left">
-                <img src="#" alt="Alternate Text" />
                 <a href="#" type="button" class="btn btn-success navbar-btn">Enter</a>
+                <i class="fa-phone fa fa-2x"></i>
             </div>
             <div class="col-md-5 float-md-left">
                 <h1>CONTACT</h1>

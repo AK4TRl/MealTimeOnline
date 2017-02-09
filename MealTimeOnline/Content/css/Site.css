@@ -59,7 +59,7 @@ ul > li{
 */
 
 .jumbotron-index {
-    background: url('/Content/images/home-bg-1.jpg') center;
+    background: url('/Content/images/home-bg-2.jpg') center;
     -ms-background-size: cover;
     background-size: cover;
 }
@@ -80,7 +80,7 @@ ul > li{
     margin-top: 5px;
     margin-bottom: 0;
     font-size: 12px;
-    color: #000;
+    color: #fff;
     text-shadow: #000;
 }
 

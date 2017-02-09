@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 namespace MealTimeOnline.Controllers
 {
     #region 餐厅展示，下单控制器
+    [Authorize]
     public class OrderController : Controller
     {
         MtoDataContext db = new MtoDataContext();
