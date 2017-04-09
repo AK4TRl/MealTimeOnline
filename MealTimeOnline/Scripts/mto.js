@@ -2,17 +2,6 @@
 *   Created by AK4TRL ‎2016-‎11‎-‎29‎ 00:50:50
 */
 
-//侧边滚动条
-$("html").niceScroll({
-    styler: "fb",
-    cursorcolor: "#cccccc",
-    cursorwidth: '6',
-    cursorborderradius: '0px',
-    background: '#424f63',
-    spacebarenabled: false,
-    cursorborder: '0',
-    zindex: '1000'
-});
 function addLoginAttr() {
     if ($('#nav-left')[0].innerText == "Log in") {
         $('#nav-left').attr("data-toggle", "modal");
@@ -37,11 +26,10 @@ getMycarousel.on("mouseenter mouseleave", function (event) {
         getLRControl.fadeOut(500);
     }
 })
-
 //
 //轮播图加载条
 if (getMycarousel.find('.carouselTimer').length == 0)
-    getMycarousel.append('<div class="carouselTimer"></div>');
+    getMycarousel.append('<div class="carouselTimer"></div>'), console.log(1);
 var bt = getMycarousel.find('.carouselTimer'),
     ebt = null;
 if (bt.length > 0) {
@@ -67,7 +55,17 @@ getLRControl.each(function () {
         ebt = setTimeout("fun()", 0);
     })
 })
-
+//侧边滚动条
+$("html").niceScroll({
+    styler: "fb",
+    cursorcolor: "#cccccc",
+    cursorwidth: '6',
+    cursorborderradius: '0px',
+    background: '#424f63',
+    spacebarenabled: false,
+    cursorborder: '0',
+    zindex: '1000'
+});
 function showTab(contentClassName, index) {
     // switch content
     var content = document.getElementsByClassName(contentClassName);

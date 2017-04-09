@@ -21,8 +21,8 @@ namespace MealTimeOnline
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/mto.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/mto.js"));
 
             bundles.Add(new StyleBundle("~/Content/css/user").Include(
                       "~/Content/css/font-awesome.css",
