@@ -1,31 +1,15 @@
-﻿<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+﻿<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a href="@Url.Action("Index", "Home")" class="navbar-brand">Where To Eat</a>
         </div>
 
         <div class="collapse navbar-collapse" id="collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                <li><a href="@Url.Action("Canteen", "Order")">Order</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                        About<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Why</a></li>
-                        <li><a href="#">How</a></li>
-                        <li><a href="#">who</a></li>
-                    </ul>
-                </li>
+                <li><a href="@Url.Action("Index", "Home")">首页</a></li>
+                <li><a href="@Url.Action("Canteen", "Order")">点餐</a></li>
+                <li><a href="#">工作</a></li>
+                <li><a href="#">联系我们</a></li>
 
 
                 <li>
@@ -33,10 +17,10 @@
                         @if (!HttpContext.Current.User.Identity.IsAuthenticated)
                         {
                             <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
-                                <a href="/Auth/Login" id="nav-left" role="button" class="btn btn-default btn-block">Log in</a>
+                                <a href="/Auth/Login" id="nav-left" role="button" class="btn btn-default btn-block">登陆</a>
                             </div>
                             <div class="form-group col-xs-6" style="padding-left: 2px; padding-right: 2px">
-                                <a href="/Auth/SignUp" id="nav-right" role="button" class="btn btn-success btn-block">Sign up</a>
+                                <a href="/Auth/SignUp" id="nav-right" role="button" class="btn btn-success btn-block">注册</a>
                             </div>
                         }
                         else

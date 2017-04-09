@@ -1,19 +1,8 @@
 ﻿/*
 *   Created by AK4TRL ‎2016-‎11‎-‎29‎ 00:50:50
 */
-function addLoginAttr() {
-    if ($('#nav-left')[0].innerText == "Log in") {
-        $('#nav-left').attr("data-toggle", "modal");
-        $('#nav-left').attr("data-target", "#loginModal");
-    }
-}
-function addAboutAttr() {
-    if ($('#about')[0].innerText == "ABOUT") {
-        $('#about').attr("data-toggle", "modal");
-        $('#about').attr("data-target", "#myModal");
-    }
-}
 
+//侧边滚动条
 $("html").niceScroll({
     styler: "fb",
     cursorcolor: "#cccccc",
@@ -24,6 +13,60 @@ $("html").niceScroll({
     cursorborder: '0',
     zindex: '1000'
 });
+function addLoginAttr() {
+    if ($('#nav-left')[0].innerText == "Log in") {
+        $('#nav-left').attr("data-toggle", "modal");
+        $('#nav-left').attr("data-target", "#loginModal");
+    }
+}
+$('#myCarousel').carousel({
+    pause: 'none'
+});
+//轮播图两边按钮隐藏/显示
+var getMycarousel = $('#myCarousel'),
+    getLRControl = $('#LRControls');
+getLRControl.hide();
+getMycarousel.on("mouseenter mouseleave", function (event) {
+    if (event.type == "mouseenter") {
+        t = setInterval(function () {
+            getLRControl.fadeIn(500);
+        }, 100);
+    }
+    else if (event.type == "mouseleave") {
+        clearInterval(t);
+        getLRControl.fadeOut(500);
+    }
+})
+
+//
+//轮播图加载条
+if (getMycarousel.find('.carouselTimer').length == 0)
+    getMycarousel.append('<div class="carouselTimer"></div>');
+var bt = getMycarousel.find('.carouselTimer'),
+    ebt = null;
+if (bt.length > 0) {
+    bt.css({ 'width': '0%' });
+};
+function fun() {
+    bt.animate({ 'width': '100%' }, 5000, function () {
+        $(this).css("width", '0%');
+        ebt = setTimeout("fun()", 0);
+    });
+}
+ebt = setTimeout("fun()", 0);
+
+//若点击next,pre重设加载条
+getLRControl.each(function () {
+    $(this).on("click", function () {
+        console.log(bt.length);
+        clearTimeout(ebt);
+        if (bt.length > 0) {
+            bt.stop();
+            bt.css({ 'width': '0%' });
+        }
+        ebt = setTimeout("fun()", 0);
+    })
+})
 
 function showTab(contentClassName, index) {
     // switch content
