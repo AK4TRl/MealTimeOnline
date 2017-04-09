@@ -55,6 +55,16 @@ getLRControl.each(function () {
         ebt = setTimeout("fun()", 0);
     })
 })
+//user
+var getCycleIcon = $('#cycle-icon');
+getCycleIcon.on("mouseenter mouseleave", function (e) {
+    if (e.type == "mouseenter") {
+        getCycleIcon.animate({ "height": "80px", "width": "80px", "border-radius":"40px","top":"0" });
+    }
+    else {
+        getCycleIcon.animate({ "height": "50px", "width": "50px", "border-radius": "25px","top":"13px" });
+    }
+})
 //侧边滚动条
 $("html").niceScroll({
     styler: "fb",
