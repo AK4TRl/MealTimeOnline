@@ -94,6 +94,7 @@ namespace MealTimeOnline.Controllers
         }
         #endregion
 
+        #region 结算提交
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Submit(string orders)
@@ -135,6 +136,7 @@ namespace MealTimeOnline.Controllers
 
             return RedirectToAction("Index", "Account");
         }
+        #endregion
     }
     #endregion
 }

@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using MealTimeOnline.ViewModels.Auth;
+using MealTimeOnline.DataAccessLayer;
+using System.Web.Security;
+using MealTimeOnline.Models;
 
 namespace MealTimeOnline.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        MtoDataContext db = new MtoDataContext();
         // GET: Account/Index
         public ActionResult Index()
         {
@@ -27,9 +29,31 @@ namespace MealTimeOnline.Controllers
             return View();
         }
 
-        // GET: Accoutn/Modifypassword
+        // GET: Account/Modifypassword
+        [HttpGet]
+        [AllowAnonymous]
         public ActionResult Modifypassword()
         {
+            return View();
+        }
+
+        // Post: Account/Modifypassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Modifypassword(ModifypwViewModel model)
+        {
+            var usr = db.Users.SingleOrDefault(c => c.Username == model.Username && c.Password == model.oldPassword);
+            if (usr == null)
+            {
+                ModelState.AddModelError("", "密码错误");
+            }
+            else
+            {
+                db.Users.SingleOrDefault(c => c.Username == model.Username && c.Password == model.oldPassword).Password = model.NewPassword;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Account");
+            }
             return View();
         }
 
@@ -45,8 +69,14 @@ namespace MealTimeOnline.Controllers
             return View();
         }
 
-        // GET: Accoutn/BusinessVerified
-        public ActionResult BusinessVerified()
+        // GET: Accoutn/Addresses
+        public ActionResult Addresses()
+        {
+            return View();
+        }
+
+        // GET: Accoutn/RecentOrder
+        public ActionResult RecentOrder()
         {
             return View();
         }

@@ -29,7 +29,13 @@ namespace MealTimeOnline.Controllers
             if (ModelState.IsValid)
             {
                 var usr = db.Users.SingleOrDefault(c => c.Username == login.Username && c.Password == login.Password);
-                if (usr == null)
+                var tmpchar = "Admin";
+                if (usr != null && login.Username.Equals(tmpchar) == true)
+                {
+                    FormsAuthentication.SetAuthCookie(usr.Id.ToString(), true);
+                    return RedirectToAction("Home", "Admin");
+                }
+                else if (usr == null)
                 {
                     ModelState.AddModelError("", "用户名或密码错误");
                 }

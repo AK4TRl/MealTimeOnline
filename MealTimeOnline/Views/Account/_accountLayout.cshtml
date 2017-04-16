@@ -1,32 +1,30 @@
-﻿@Styles.Render("~/Content/css/account")
-
+﻿
+@Styles.Render("~/Content/css/account")
 <div class="left-side left">
     <ul>
-        <li><a href="@Url.Action("Index", "Account")" class="title-color panel-title"><i class="fa fa-home"></i>Personal</a></li>
+        <li><a href="@Url.Action("Index", "Account")" class="title-color panel-title"><i class="fa fa-home"></i>个人中心</a></li>
         <li>
-            <span class="modal-title text-center"><i class="fa fa-cutlery"></i>My orders</span>
+            <span class="modal-title text-center"><i class="fa fa-shopping-bag"></i>我的订单</span>
             <ul class="sm-left-side">
-                <li><a href="#">Recent orders</a></li>
-                <li><a href="Evaluated">Evaluated</a></li>
-                <li><a href="#">Single record</a></li>
+                <li><a href="@Url.Action("RecentOrder", "Account")">最近订单</a></li>
+                <li><a href="Evaluated">评价</a></li>
             </ul>
         </li>
         <li>
-            <span class="modal-title text-center"><i class="fa fa-rmb"></i>My assets</span>
+            <span class="modal-title text-center"><i class="fa fa-money"></i>我的钱包</span>
             <ul class="sm-left-side">
-                <li><a href="#">Red packet</a></li>
-                <li><a href="AccountBalance">Account Balance</a></li>
-                <li><a href="#">Integration</a></li>
+                <li><a href="@Url.Action("AccountBalance", "Account")">我的红包 </a></li>
+                <li><a href="@Url.Action("AccountBalance", "Account")">账户余额</a></li>
+                <li><a href="#">我的积分（未完成）</a></li>
             </ul>
         </li>
         <li>
-            <span class="modal-title text-center"><i class="fa fa-male"></i>Profile</span>
+            <span class="modal-title text-center"><i class="fa fa-male"></i>个人资料</span>
             <ul class="sm-left-side">
-                <li><a href="@Url.Action("Info")">Personal profile</a></li>
-                <li><a href="#">Address</a></li>
-                <li><a href="Security">Security center</a></li>
-                <li><a href="Modifypassword">Modify password</a></li>
-                <li><a href="BusinessVerified">Business Verified</a></li>
+                <li><a href="@Url.Action("Info","Account")">个人资料</a></li>
+                <li><a href="@Url.Action("Addresses", "Account")">收货地址</a></li>
+                <li><a href="@Url.Action("Security", "Account")">安全中心</a></li>
+                <li><a href="@Url.Action("Modifypassword", "Account")">修改密码</a></li>
             </ul>
         </li>
     </ul>

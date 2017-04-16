@@ -9,15 +9,13 @@
 
     <div class="navbar-left navbar-form">
         <span>当前饭堂：</span>
-        <span>
-            <a href="#">2333</a>
-        </span>
+        <span id="canteenName"></span>
     </div>
 
     <div class="navbar-right navbar-form">
         <div class="input-group">
-            <input class="search-input form-control" placeholder="Search foods" />
-            <input type="button" class="input-group-addon"><i class="fa fa-search"></i>
+            <input class="search-input form-control" placeholder="搜索" />
+            <span id="search-sp" class="input-group-addon"><i class="fa fa-search"></i></span>
         </div>
     </div>
 
@@ -33,7 +31,7 @@
             <ul>
                 @for (int i = 0; i < Model.canteen.Count; ++i)
                 {
-                    <li><a class="@if(i==0) {@("current")}" href="#" onclick="showSelected(); showTab('rstbox', @(i));" @Model.canteen[i].CanteenId>@Model.canteen[i].CanteenName</a></li>
+                    <li><a class="@if(i==0) {@("current")}" href="#" onclick="showSelected(); showTab('rstbox', @(i));" data-canteenName="@Model.canteen[i].CanteenName" data-canteenId="@Model.canteen[i].CanteenId">@Model.canteen[i].CanteenName</a></li>
                 }
             </ul>
         </div>
@@ -77,8 +75,8 @@
 <div class="cart">
     <div id="cart-basket" class="cart-basket" style="top:-40px">
         <div class="cart-clear">
-            Cart
-            <a href="#" onclick="cartclear('footercheck')">[clear up]</a>
+            购物车
+            <a href="#" onclick="cartclear('footercheck')">[清空]</a>
         </div>
         <div id="basic"></div>
     </div>

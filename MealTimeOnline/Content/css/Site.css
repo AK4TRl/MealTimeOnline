@@ -5,6 +5,15 @@
 body {
     margin-top: 70px;
 }
+h1,
+h2,
+h3,
+h4,
+h5{
+    font-family: "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height:30px;
+}
 ul,
 li,
 ol,
@@ -87,7 +96,7 @@ ul > li{
 .info{
     height:auto;
     background-color:#fff;
-    border:1px solid #ccc;
+    border:1px solid #f4f5f7;
     padding:0 20px;
 }
 .info > .user-name{
@@ -114,11 +123,11 @@ ul > li{
 /**********************************************/
 .contain-center-gray {
     background: #d9d0d0;
-    background: rgba(217, 208, 208, 0.75);
+    background: rgba(23, 61, 80, 0.0588235);
 }
 
 .contain-zone {
-    padding: 30px 0;
+    padding: 30px;
 }
 
 .email-notice {
@@ -128,25 +137,47 @@ ul > li{
     color: #fff;
     text-shadow: #000;
 }
-
-.float-md-right {
-    float: right;
-    height: 260px;
+.float-md-center {
+    width:29%;
+    margin:22px auto;
 }
-
 .float-md-left {
     float: left;
-    height: 280px;
+    height: 230px;
 }
-
-.float-md-center {
-    padding-top: 1px;
+.float-md-right {
+    float: right;
+    height: 230px;
 }
-
-.text-center a {
-    text-decoration: none;
+.mybtn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #4cae4c;
+    background-color: #fff;
+    border-color: #4cae4c;
 }
-
+.mybtn:hover{
+    background-color:#5cb85c;
+    color:#fff;
+    text-decoration:none;
+    transition-duration:0.3s;
+}
 /*
     Auth SignUp
 */
@@ -165,7 +196,12 @@ ul > li{
     height: 100px;
     border: 1px solid #e6e6e6;
 }
-
+#search-sp{
+    cursor: pointer;
+}
+.search-input{
+    width:100px !important;
+}
 .Business-sorts {
     margin-top: 30px;
     border: 1px solid #e6e6e6;
@@ -334,11 +370,13 @@ ul > li{
 
 .food-add-cart {
     background-color: #0089dc;
+    cursor: pointer;
 }
 
 .food-cart-cnt {
     background-color: #ddd;
     color: #ddd;
+    cursor: pointer;
 }
 
 .food-cart-cnt > span {
@@ -353,4 +391,22 @@ ul > li{
     text-align: center;
     border: 1px solid #ddd;
     background-color: #fff;
+}
+
+/**
+*footer
+*/
+body > footer {
+    margin-top:40px;
+    width:100vw;
+    bottom:0;
+    background: #F5F5F5;
+    text-align: center;
+    padding-top: 48px;
+    padding-bottom: 55px;
+}
+body > footer p {
+    font-size: 13px;
+    line-height: 25px;
+    color: #919191;
 }

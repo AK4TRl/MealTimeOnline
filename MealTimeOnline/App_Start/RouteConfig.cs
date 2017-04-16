@@ -18,6 +18,10 @@ namespace MealTimeOnline
                 name: "Auth",
                 url: "Auth/{controller}/{action}/{id}"
             );
+            routes.MapRoute(
+                name: "Account",
+                url: "Account/{controller}/{action}/{id}"
+            );
 
             routes.MapRoute(
                 name: "Image Placeholder",

@@ -2,7 +2,18 @@
 *   Created by AK4TRL ‎2016-‎11‎-‎29‎ 00:50:50
 *   Modify in 2017-04
 */
-
+//侧边滚动条
+$('html').niceScroll({
+    styler: "fb",
+    cursorcolor: "#cccccc",
+    cursorwidth: '6',
+    cursorborderradius: '0px',
+    background: '#424f63',
+    spacebarenabled: false,
+    cursorborder: '0',
+    zindex: '1000'
+});
+$('.menu').hide();
 function addLoginAttr() {
     if ($('#nav-left')[0].innerText == "Log in") {
         $('#nav-left').attr("data-toggle", "modal");
@@ -67,7 +78,7 @@ getMember.on("mouseenter mouseleave", function (e) {
     if (e.type == "mouseenter") {
         tmpTimer = setTimeout(function () {
             getCycleIcon.animate({ "height": "70px", "width": "70px", "border-radius": "35px", "top": "40px", "left": "10px" })
-            $(".menu").css({'left':'-40px'});
+            $(".menu").css({ 'left': '-40px' }, { 'visibility': 'visible' });
             $(".menu").slideDown(410);
         }, 400);
         clearTimeout(tmpTimer2)
@@ -80,17 +91,9 @@ getMember.on("mouseenter mouseleave", function (e) {
         clearTimeout(tmpTimer)
     }
 })
-//侧边滚动条
-$("html").niceScroll({
-    styler: "fb",
-    cursorcolor: "#cccccc",
-    cursorwidth: '6',
-    cursorborderradius: '0px',
-    background: '#424f63',
-    spacebarenabled: false,
-    cursorborder: '0',
-    zindex: '1000'
-});
+//选择食堂,位置显示
+//console.log($('.Business-sorts .current').html());
+$('#canteenName').html($('.Business-sorts .current').html());
 function showTab(contentClassName, index) {
     // switch content
     var content = document.getElementsByClassName(contentClassName);
@@ -99,6 +102,7 @@ function showTab(contentClassName, index) {
             content[i].classList.remove('rstbox-current');
     }
     content[index].classList.add('rstbox-current');
+    $('#canteenName').html($('.Business-sorts .current').html());
 }
 
 function showSelected() {
@@ -142,6 +146,7 @@ function showCart(obj) {
 
     //remove disabled
     $('#footercheck').removeClass('disabled');
+    $('#footercheck').removeAttr("disabled");
 }
 
 function UpdateCard(id, cnt) {
@@ -165,6 +170,7 @@ function UpdateCard(id, cnt) {
     $('#showprices').html(sum);
     if (sum == 0) {
         $('#footercheck').addClass("disabled");
+        $('#footercheck').attr('disabled', "true");
     }
 }
 
@@ -192,6 +198,7 @@ function cartclear(contentCheckButton) {
 
     //button change
     $("#footercheck").addClass("disabled");
+    $('#footercheck').attr('disabled', "true");
 }
 
 $('.canteen-box').each(function () {
@@ -263,3 +270,18 @@ $('.food-cart-cnt').each(function () {
         UpdateCard(id, cnt);
     });
 });
+
+//个人中心 > 个人资料 > 地址没有添加时的更改
+
+$('#fucktheaddress').html(function () {
+    var reg = /\{\{(.+?)\}\}/g,
+        tmpstr = $('#fucktheaddress').html();
+    var tmpflag = tmpstr.match(reg);
+    if (tmpflag == "{{fuck}}") {
+        tmpstr = tmpstr.replace('{{' + 'fuck' + '}}', '<a href="Addresses">请添加</a>');
+        //console.log(tmpstr);
+    }
+    return tmpstr;
+});
+
+$('#needtoadd').html();

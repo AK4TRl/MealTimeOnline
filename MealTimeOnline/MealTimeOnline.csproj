@@ -218,7 +218,9 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Account\OrderViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Auth\ModifypwViewModel.cs" />
     <Compile Include="ViewModels\Auth\SignUpViewModel.cs" />
     <Compile Include="ViewModels\Order\CanteenViewModel.cs" />
     <Compile Include="ViewModels\Order\CartViewModel.cs" />
@@ -369,6 +371,10 @@
     <Content Include="Views\Order\Canteen.cshtml" />
     <Content Include="Views\Auth\PrivacyPolicy.cshtml" />
     <Content Include="Views\Order\CheckOut.cshtml" />
+    <Content Include="Views\Account\Evaluated.cshtml" />
+    <Content Include="Views\Account\AccountBalance.cshtml" />
+    <Content Include="Views\Account\Addresses.cshtml" />
+    <Content Include="Views\Account\RecentOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
