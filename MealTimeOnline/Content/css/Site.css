@@ -5,7 +5,6 @@
 body {
     margin-top: 70px;
 }
-
 ul,
 li,
 ol,
@@ -67,13 +66,50 @@ ul > li{
     opacity: 0.5;
 }
 .cycle-icon > a{
+    left:20px;
     top:13px;
     position:absolute;
     display:block;
     height:50px;
     width:50px;
     border-radius:25px;
+    background-color:#666;
+    z-index:1000;
+}
+.menu{
+    width:170px;
+    position:absolute;
+    top:77px;
+    box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
+    z-index: 10;
+    border-radius: 0 0 4px 4px;
+}
+.info{
+    height:auto;
     background-color:#fff;
+    border:1px solid #ccc;
+    padding:0 20px;
+}
+.info > .user-name{
+    margin-top:40px;
+    line-height: 16px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.member-exit{
+    height: 30px;
+    line-height: 30px;
+    background-color: #f4f5f7;
+    border-radius: 0 0 4px 4px;
+}
+.menu a{
+    padding:0 20px;
+    float:right;
+    color:#222;
+    text-decoration:none;
+}
+.menu a:hover{
+    color:#00a1d6 ;
 }
 /**********************************************/
 .contain-center-gray {

@@ -1,5 +1,6 @@
 ﻿/*
 *   Created by AK4TRL ‎2016-‎11‎-‎29‎ 00:50:50
+*   Modify in 2017-04
 */
 
 function addLoginAttr() {
@@ -29,7 +30,7 @@ getMycarousel.on("mouseenter mouseleave", function (event) {
 //
 //轮播图加载条
 if (getMycarousel.find('.carouselTimer').length == 0)
-    getMycarousel.append('<div class="carouselTimer"></div>'), console.log(1);
+    getMycarousel.append('<div class="carouselTimer"></div>');
 var bt = getMycarousel.find('.carouselTimer'),
     ebt = null;
 if (bt.length > 0) {
@@ -55,14 +56,28 @@ getLRControl.each(function () {
         ebt = setTimeout("fun()", 0);
     })
 })
-//user
-var getCycleIcon = $('#cycle-icon');
-getCycleIcon.on("mouseenter mouseleave", function (e) {
+//网页失去焦点后加载条停止
+
+//用户登陆后图标,以及登陆信息
+var getCycleIcon = $('#cycle-icon'),
+    getMember = $('.member'),
+    tmpTimer = null,
+    tmpTimer2 = null;
+getMember.on("mouseenter mouseleave", function (e) {
     if (e.type == "mouseenter") {
-        getCycleIcon.animate({ "height": "80px", "width": "80px", "border-radius":"40px","top":"0" });
+        tmpTimer = setTimeout(function () {
+            getCycleIcon.animate({ "height": "70px", "width": "70px", "border-radius": "35px", "top": "40px", "left": "10px" })
+            $(".menu").css({'left':'-40px'});
+            $(".menu").slideDown(410);
+        }, 400);
+        clearTimeout(tmpTimer2)
     }
     else {
-        getCycleIcon.animate({ "height": "50px", "width": "50px", "border-radius": "25px","top":"13px" });
+        tmpTimer2 = setTimeout(function () {
+            getCycleIcon.animate({ "height": "50px", "width": "50px", "border-radius": "25px", "top": "13px", "left": "20px" });
+            $(".menu").slideUp(410);
+        }, 400);
+        clearTimeout(tmpTimer)
     }
 })
 //侧边滚动条

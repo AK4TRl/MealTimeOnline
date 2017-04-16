@@ -28,14 +28,22 @@
                             var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();
                             var id = int.Parse(HttpContext.Current.User.Identity.Name);
                             var curUser = db.Users.Single(c => c.Id == id);
-
-                            <div class="cycle-icon">
-                                <a id="cycle-icon" href="@Url.Action("Index", "Account")" data-username="@curUser.Username"></a>
+                            <div class="member">
+                                <div class="cycle-icon">
+                                    <a id="cycle-icon" href="@Url.Action("Index", "Account")" data-username="@curUser.Username"></a>
+                                </div>
+                                <div class="menu">
+                                    <div class="info">
+                                        <div class="user-name">
+                                            <h6>@curUser.Username</h6>
+                                        </div>
+                                    </div>
+                                    <div class="member-exit">
+                                        <a href="@Url.Action("Logout", "Auth")">退出</a>
+                                        <a href="@Url.Action("Index", "Account")">个人中心</a>
+                                    </div>
+                                </div>
                             </div>
-
-                            @*<div class="form-group" style="padding-left: 10px; padding-right: 2px">
-                                <a href="@Url.Action("Logout", "Auth")" role="button" class="btn btn-default btn-block">注销</a>
-                            </div>*@
                         }
                     </form>
                 </li>
