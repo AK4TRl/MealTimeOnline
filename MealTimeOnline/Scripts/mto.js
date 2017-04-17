@@ -283,5 +283,3 @@ $('#fucktheaddress').html(function () {
     }
     return tmpstr;
 });
-
-$('#needtoadd').html();

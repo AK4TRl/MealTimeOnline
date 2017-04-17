@@ -6,19 +6,26 @@
         var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();
         var id = int.Parse(HttpContext.Current.User.Identity.Name);
         var curUser = db.Users.Single(c => c.Id == id);
+        var curAddresses = db.Addresses.Where(c => c.UserId == id);
     }
 
     <div class="right-side left">
         <div class="global-panel-big-title">收货地址</div>
         <div id="needtoadd">
-            @if (curUser.RoomNum == null || curUser == null)
-            {
-                @("{add}")
-            }
+            @if (curUser.RoomNum == null || curUser == null){@("{{add}}")}
             else
             {
-                @("done")
+                <table class="table">
+                    <tbody>
+                        @foreach (var item in curAddresses)
+                        {
+                            <tr>
+                                <td></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
-        </div>
+    </div>
     </div>
 </div>

@@ -153,12 +153,12 @@ ul > li > a:link {
   color: #666;
 }
 .right-side td:nth-child(1) {
-  width: 120px;
+  width: 200px;
   color: #000;
   padding-left: 30px;
 }
 .right-side td:nth-child(2) {
-  width: 350px;
+  width: 280px;
 }
 .right-side td:nth-child(3) {
   width: 160px;

@@ -80,5 +80,11 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
+
+        // GET: Accoutn/RedPacket
+        public ActionResult RedPacket()
+        {
+            return View();
+        }
     }
 }
