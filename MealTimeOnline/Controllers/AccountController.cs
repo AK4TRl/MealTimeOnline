@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using MealTimeOnline.ViewModels.Auth;
+using MealTimeOnline.ViewModels.Account;
 using MealTimeOnline.DataAccessLayer;
 using System.Web.Security;
 using MealTimeOnline.Models;
+using MealTimeOnline.Models.Consumer;
 
 namespace MealTimeOnline.Controllers
 {
@@ -73,6 +75,29 @@ namespace MealTimeOnline.Controllers
         public ActionResult Addresses()
         {
             return View();
+        }
+        // Post: Account/Addresses
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Addresses(AdderssesViewModel model)
+        {
+            var tmpId = int.Parse(System.Web.HttpContext.Current.User.Identity.Name.Trim());
+            var usr = db.Users.SingleOrDefault(c => c.Id == tmpId);
+            string tmpstr = model.rIndex + model.rLongIndex;
+
+            var usrAddr = db.Addresses.Where(c => c.UserId == usr.Id && c.AddressInfo.Equals(tmpstr));
+            if(usrAddr.Count() == 0)
+            {
+                var usrNewAddr = new Address();
+                usrNewAddr.AddressInfo = tmpstr;
+                usrNewAddr.UserId = usr.Id;
+
+                db.Addresses.Add(usrNewAddr);
+                db.SaveChanges();
+                return RedirectToAction("Addresses", "Account");
+            }
+            return RedirectToAction("Addresses", "Account");
         }
 
         // GET: Accoutn/RecentOrder

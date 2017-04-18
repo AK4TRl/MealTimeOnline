@@ -136,6 +136,41 @@ ul > li > a:link {
     text-decoration: none;
 }
 
+/**
+    Address
+*/
+.addressInfo{
+    width:240px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-color: #fff;
+    border: 1px solid #999;
+    white-space: nowrap;
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    margin:20px;
+}
+.addressInfo > ul > li{
+    display: list-item;
+    margin-left:-20px;
+}
+.addressInfo > ul > li:nth-child(1){
+    margin-bottom:28px;
+}
+.addressInfo-add tr td{
+    border: 1px solid transparent !important;
+}
+.addressInfo-add td:nth-child(2){
+    width:130px !important;
+}
+.addressInfo-add td:nth-child(3){
+    width:220px !important;
+}
 /*
     Security
 */

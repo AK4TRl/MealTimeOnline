@@ -127,7 +127,7 @@ ul > li{
 }
 
 .contain-zone {
-    padding: 30px;
+    padding: 100px;
 }
 
 .email-notice {
@@ -168,15 +168,30 @@ ul > li{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: #4cae4c;
-    background-color: #fff;
-    border-color: #4cae4c;
 }
-.mybtn:hover{
+.mybtnaccept{
+    border-color: #4cae4c;
+    color: #4cae4c;
+}
+.mybtnaccept:hover{
     background-color:#5cb85c;
     color:#fff;
     text-decoration:none;
     transition-duration:0.3s;
+}
+.mybtnSelectAddress{
+    width:240px;
+    margin:20px;
+    padding:30px;
+    border-color:#999;
+}
+.mybtnSelectAddress a{
+    text-decoration:none;
+}
+.mybtnSelectAddress:hover{
+    border-color: #0089dc;
+    color: #0089dc;
+    transition-duration:0.2s;
 }
 /*
     Auth SignUp
@@ -186,7 +201,23 @@ ul > li{
     padding-right: 20%;
     margin-left: 20%;
 }
-
+/*
+    contact us && about us 
+*/
+.panel-title > h3{
+    border-bottom:2px solid #000;
+    width:10%;
+    padding:20px 0;
+    margin-bottom:-1px;
+}
+.panel-title > h5{
+    color:#666;
+}
+#aboutUs ul > li,
+#contactUs ul > li{
+    display:list-item !important;
+    list-style: disc;
+}
 /*
     Order Canteen
 */

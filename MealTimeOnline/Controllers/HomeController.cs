@@ -23,8 +23,12 @@ namespace MealTimeOnline.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            return View();
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult WorkToMan()
+        {
             return View();
         }
     }

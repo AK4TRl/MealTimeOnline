@@ -3,6 +3,11 @@
 
 <section class="container clearfix">
     @{Html.RenderPartial("_accountLayout"); }
+    @{
+        var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();
+        var id = int.Parse(HttpContext.Current.User.Identity.Name);
+        var curUser = db.Users.Single(c => c.Id == id);
+    }
 
     <div class="right-side left">
         <div class="global-panel-big-title">安全中心</div>
@@ -18,7 +23,7 @@
                 <tr>
                     <td>绑定手机</td>
                     <td>完成手机认证</td>
-                    <td>15800184853</td>
+                    <td>@curUser.PhoneNumber</td>
                     <td class="bound">已绑定</td>
                     <td><a href="">修改</a></td>
                 </tr>
@@ -27,7 +32,7 @@
                     <td>保障账户安全</td>
                     <td>--</td>
                     <td class="set">已设置</td>
-                    <td><a href="Modifypassword">修改</a></td>
+                    <td><a href="@Url.Action("Modifypassword", "Account")">修改</a></td>
                 </tr>
                 <tr>
                     <td>支付密码</td>
