@@ -214,14 +214,11 @@
     <Compile Include="Models\Consumer\Order.cs" />
     <Compile Include="Models\Dealer\CanteenCategory.cs" />
     <Compile Include="Models\Dealer\EnterRegister.cs" />
-    <Compile Include="Models\Common\JobApply.cs" />
-    <Compile Include="Models\Common\Jobs.cs" />
     <Compile Include="Models\Privilege.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\AddressesViewModel.cs" />
-    <Compile Include="ViewModels\Account\JobsViewModel.cs" />
     <Compile Include="ViewModels\Account\OrderViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Auth\ModifypwViewModel.cs" />
