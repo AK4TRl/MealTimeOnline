@@ -6,6 +6,13 @@
     ViewBag.Title = "CheckOut";
 }
 
+@{
+    var db = new MealTimeOnline.DataAccessLayer.MtoDataContext();
+    var id = int.Parse(HttpContext.Current.User.Identity.Name);
+    var curUser = db.Users.Single(c => c.Id == id);
+    var curAddresses = db.Addresses.Where(c => c.UserId == id);
+}
+
 <div class="container" style="padding-top: 10px; padding-bottom: 10px">
     <div class="row">
         <div class="col-md-5 col-lg-5">
@@ -13,35 +20,31 @@
                 <div class="panel-heading">
                     订单详情
                 </div>
-                
+
                 <div class="panel-body">
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th>商品</th>
-                            <th>份数</th>
-                            <th>小计(元)</th>
-                        </tr>
+                            <tr>
+                                <th>商品</th>
+                                <th>份数</th>
+                                <th>小计(元)</th>
+                            </tr>
                         </thead>
 
-                        @{
-                            var db = new MtoDataContext();
-                        }
-
                         <tbody>
-                        @foreach (OrderViewModel item in Model.cartVm.orders)
-                        {
+                            @foreach (OrderViewModel item in Model.cartVm.orders)
+                            {
+                                <tr>
+                                    <td>@db.Foods.Find(item.FoodId).FoodName</td>
+                                    <td>@item.cnt</td>
+                                    <td><i class="fa fa-rmb"></i> @(item.cnt * db.Foods.Find(item.FoodId).Price)</td>
+                                </tr>
+                            }
                             <tr>
-                                <td>@db.Foods.Find(item.FoodId).FoodName</td>
-                                <td>@item.cnt</td>
-                                <td><i class="fa fa-rmb"></i> @(item.cnt * db.Foods.Find(item.FoodId).Price)</td>
+                                <td>配送费</td>
+                                <td>&nbsp;</td>
+                                <td><i class="fa fa-rmb"></i> @Model.ServicePrice</td>
                             </tr>
-                        }
-                        <tr>
-                            <td>配送费</td>
-                            <td>&nbsp;</td>
-                            <td><i class="fa fa-rmb"></i> @Model.ServicePrice</td>
-                        </tr>
                         </tbody>
                     </table>
 
@@ -49,13 +52,13 @@
                         <span class="small"><i class="fa fa-rmb text-danger"></i></span> @Model.TotalPrice
                     </h1>
                 </div>
-                
+
                 <div class="panel-footer clearfix">
                     <span class="pull-right small">共 @Model.cartVm.orders.Count 份商品</span>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-7 col-lg-7">
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
@@ -64,8 +67,23 @@
                         var usr = db.Users.Find(int.Parse(HttpContext.Current.User.Identity.Name));
                     }
                     <h4>收货地址</h4>
-                    @usr.School @usr.RoomNum
-                    
+
+                    @if (curAddresses.Count() > 0)
+                    {
+                        <div id="select_address">
+                            @foreach (var item in curAddresses)
+                            {
+                            <div class="select_address">
+                                @item.AddressInfo
+                            </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Addresses", "Account")">暂无地址，请添加</a>
+                    }
+
                     <h4>付款方式</h4>
                     @{ var first = true; }
                     <div class="row">
@@ -81,10 +99,10 @@
                     @using (Html.BeginForm("Submit", "Order", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
-                        
+
                         <input type="hidden" id="orders" name="orders" value="@(Json.Encode(Model))" />
 
-                        <button type="submit" class="btn btn-danger">提交订单</button>
+                        <button id="btnToSubmit" type="submit" class="btn btn-danger" data-addressCount="@curAddresses.Count()">提交订单</button>
                     }
                 </div>
                 <div class="panel-footer"></div>

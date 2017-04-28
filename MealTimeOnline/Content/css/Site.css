@@ -193,6 +193,17 @@ ul > li{
     color: #0089dc;
     transition-duration:0.2s;
 }
+.select_address {
+    cursor:pointer;
+    border-radius:5px;
+    margin-bottom:10px;
+    width:50%;
+    padding:10px;
+    border:1px solid #666;
+}
+#select_address .active{
+    border-color:#0089dc;
+}
 /*
     Auth SignUp
 */

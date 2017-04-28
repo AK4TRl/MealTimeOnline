@@ -18,6 +18,7 @@ namespace MealTimeOnline
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleTable.EnableOptimizations = false;
             ClientDataTypeModelValidatorProvider.ResourceClassKey = "Messages";
             DefaultModelBinder.ResourceClassKey = "Messages";
         }

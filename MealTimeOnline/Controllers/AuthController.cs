@@ -7,7 +7,6 @@ using MealTimeOnline.Models;
 
 namespace MealTimeOnline.Controllers
 {
-    [Authorize]
     public class AuthController : Controller
     {
         MtoDataContext db = new MtoDataContext();

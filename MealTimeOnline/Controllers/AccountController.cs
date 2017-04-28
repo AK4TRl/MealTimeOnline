@@ -80,7 +80,7 @@ namespace MealTimeOnline.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Addresses(AdderssesViewModel model)
+        public ActionResult Addresses(AdderssesViewModel model, string returnUrl)
         {
             var tmpId = int.Parse(System.Web.HttpContext.Current.User.Identity.Name.Trim());
             var usr = db.Users.SingleOrDefault(c => c.Id == tmpId);
@@ -92,12 +92,14 @@ namespace MealTimeOnline.Controllers
                 var usrNewAddr = new Address();
                 usrNewAddr.AddressInfo = tmpstr;
                 usrNewAddr.UserId = usr.Id;
+                usr.RoomNum = model.rLongIndex;
+                usr.School = model.rIndex;
 
                 db.Addresses.Add(usrNewAddr);
                 db.SaveChanges();
-                return RedirectToAction("Addresses", "Account");
+                return Redirect(returnUrl ?? Url.Action("Addresses", "Account"));
             }
-            return RedirectToAction("Addresses", "Account");
+            return Redirect(returnUrl ?? Url.Action("Addresses", "Account"));
         }
 
         // GET: Accoutn/RecentOrder

@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace MealTimeOnline.Controllers
 {
-    [RoutePrefix("api")]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,8 +24,6 @@ namespace MealTimeOnline.Controllers
         {
             return View();
         }
-        [HttpGet]
-        [AllowAnonymous]
         public ActionResult WorkToMan()
         {
             return View();

@@ -66,9 +66,6 @@ namespace MealTimeOnline
             #endregion // Admin
 
             bundles.UseCdn = true;
-#if !DEBUG
-            BundleTable.EnableOptimizations = true;
-#endif
         }
     }
 }

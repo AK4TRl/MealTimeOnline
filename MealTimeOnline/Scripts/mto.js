@@ -283,3 +283,24 @@ $('#fucktheaddress').html(function () {
     }
     return tmpstr;
 });
+
+//购物车checkout页面地址选择
+$('.select_address:first').addClass('active');
+$('.select_address').each(function () {
+    $(this).click(function () {
+        if ($(this).hasClass('active')) { }
+        else {
+            $(this).parent().find('.active').removeClass('active');
+            $(this).addClass('active');
+        }
+    })
+})
+
+//若没有设置地址，则拒绝访问
+$('#btnToSubmit').attr("disabled",function (e) {
+    if ($(this).attr('data-addressCount') == '0') {
+        return true;
+        alert("请先填写所在地址");
+    }
+    return false;
+});
